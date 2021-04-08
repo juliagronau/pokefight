@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import PokeState from './context/context'
 ReactDOM.render(
   <React.StrictMode>
+    <PokeState> 
     <App />
+    </PokeState>
   </React.StrictMode>,
   document.getElementById('root')
 );
