@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { PokeContext } from "./context/context";
 import { Switch, Route } from "react-router-dom";
 import HighScore from "./components/HighScore";
+import Warning from "./components/Warning";
 
 function App() {
   const { pokedex } = useContext(PokeContext);
@@ -15,6 +16,9 @@ function App() {
       <Switch>
         <Route exact path="/highscore">
           <HighScore />
+        </Route>
+        <Route exact path="/addiction-warning">
+          <Warning />
         </Route>
         <Route exact path="/">
           <ul>
