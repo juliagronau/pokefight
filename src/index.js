@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+
+
 import App from './App';
+import './index.scss';
+
 import reportWebVitals from './reportWebVitals';
-import PokeState from './context/context'
+import PokeState from './context/context';
+
 ReactDOM.render(
   <React.StrictMode>
+
     <PokeState> 
-    <App />
+
+      <BrowserRouter>
+
+        <App />
+ 
+      </BrowserRouter>
     </PokeState>
   </React.StrictMode>,
   document.getElementById('root')
