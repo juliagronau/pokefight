@@ -8,20 +8,19 @@ import OnHeaderNav from './grommet/header';
 
 /* components */
 import NewGame from './components/NewGame';
-import Score from './components/Score';
+import HighScore from "./components/HighScore";
+import Warning from "./components/Warning";
+
 
 
 function App() {
 
-
   const pokeTheme = {
     global: { font: { 
-                        family: 'poke', size: '20px', height: '20px'}, 
-                        colors: {text: {"dark": "yellow", "light": "#444444"}
-                    },
-              control:  {
-                border:{ radius: '50px'}
+                family: 'poke', size: '20px', height: '20px'}, 
+                colors: { text: {"dark": "yellow", "light": "#444444"}
               },
+              control: { border:{ radius: '50px'} },
               input: { padding: {"horizontal": "50px"}},
               focus: { border: { color: 'red'}}
             },
@@ -30,36 +29,42 @@ function App() {
   const {pokedex} = useContext(PokeContext)
   console.log(pokedex)
   return (
+    
     <React.StrictMode>
-      <Grommet  background="black" theme={pokeTheme}> 
-        <Box height="100vh" width="100vw">
+      <Grommet  background="white" theme={pokeTheme}> 
+        <Box  height={{ 'min': '100vh', 'max': '100%' }} width="100vw">
 
-          <OnHeaderNav />
+          <OnHeaderNav theme={pokeTheme} />
           <Box   
+                  flex="grow"
                  align="center"
+                 pad="50px"
                  basis="full"
-                 background="white"
                  >
               <Switch>
-                
+                <Route exact path="/">
+                  <ul>
+                    {pokedex.map(pokemon => (
+                      <li>
+                        <strong>{pokemon.name}</strong>: HP:{pokemon.stats[0].base_stat}{" "}
+                        Attack:{pokemon.stats[1].base_stat} Defense:{" "}
+                        {pokemon.stats[2].base_stat} Id:{pokemon.id}
+                        <img src={pokemon.sprites.back_default} />
+                      </li>
+                    ))}
+                  </ul>
+                </Route>
+
                 <Route exact path="/play" render={ ()=> <NewGame/> } />
-                <Route exact path="/Score" render={ ()=> <Score/> } />
+                <Route exact path="/highscore" render={ ()=> <HighScore/> }/>
+                <Route exact path="/addiction-warning" render={ ()=> <Warning /> }/>
+                
                 {/* <Route path="*" component={PageNotFound} /> */}
+
               </Switch>
           </Box>
         </Box>
       </Grommet> 
-         
-
-     
-      {/* <img alt="" src="https://res.cloudinary.com/lmn/image/upload/c_limit,h_392,w_696/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/a/6/0/a6078c-2fd9033b2be04c9b947d1aac6cdaef60-a2551.gif"/>
-
-      <h1>Gotta catch them all!!! </h1>
-      <ul>
-        {pokedex.map(pokemon => <li><strong>{pokemon.name}</strong>: HP:{pokemon.stats[0].base_stat} Attack:{pokemon.stats[1].base_stat} Defense: {pokemon.stats[2].base_stat} Id:{pokemon.id}<img alt="" src={pokemon.sprites.front_default}/></li>)}
-      </ul>  */}
-      
-
     </React.StrictMode>
   );
 }
