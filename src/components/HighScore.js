@@ -24,6 +24,7 @@ const HighScore = () => {
           <TableCell>User</TableCell>
           <TableCell>Pokémon</TableCell>
           <TableCell>Score</TableCell>
+          <TableCell>Number of Rolls</TableCell>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -32,6 +33,7 @@ const HighScore = () => {
             <TableCell>{fight.name}</TableCell>
             <TableCell>{fight.pokename}</TableCell>
             <TableCell>{fight.score}</TableCell>
+            <TableCell>{fight.numberofrolls}</TableCell>
           </TableRow>
         ))}
       </TableBody>
