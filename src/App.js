@@ -44,8 +44,8 @@ function App() {
                  basis="full"
                  >
               <Switch>
-                <Route exact path="/">
-                  <ul>
+                <Route exact path="/" render={ ()=> <NewGame/> }/> {/*this route is temporary, as we wait for a pokedex*/}
+                  {/* <ul>
                     {pokedex.map(pokemon => (
                       <li>
                         <strong>{pokemon.name}</strong>: HP:{pokemon.stats[0].base_stat}{" "}
@@ -54,8 +54,7 @@ function App() {
                         <img src={pokemon.sprites.back_default} />
                       </li>
                     ))}
-                  </ul>
-                </Route>
+                  </ul> */}
 
                 <Route exact path="/play" render={ ()=> <NewGame/> } />
                 <Route exact path="/highscore" render={ ()=> <HighScore/> }/>
