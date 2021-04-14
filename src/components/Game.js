@@ -22,6 +22,7 @@ const [roll, setRoll] = useState(0);
 const [result, setResult] = useState();
 const [score, setScore] = useState(0);
 const [showScore, setShowScore] = useState(false)
+const [antiHack, setAntiHack] = useState(false);
 
 // variable to inform the user when the 'submit' form is sent. 
 const [userFeedback, setUserFeedback] = useState(); 
@@ -30,7 +31,7 @@ const [userFeedback, setUserFeedback] = useState();
 
 const getRoll = () =>
 {
-         const random = () => Math.floor(Math.random()*10);
+         const random = () => Math.floor(Math.random()*25);
          setShowScore(false);
          if(typeof pokedex !='undefined') 
             {
@@ -39,7 +40,7 @@ const getRoll = () =>
             setPoke3(pokedex[random()])
             }
          else{console.log('Loading')}
-
+         setAntiHack(true)
          setRoll(prevRoll=>prevRoll+1)
 
          return "console.log('OK')"
@@ -48,7 +49,7 @@ const getRoll = () =>
 
 // When you click on'get a pokemon'... 
 const getPoke = () => {
-   const random = () => Math.floor(Math.random()*10);
+   const random = () => Math.floor(Math.random()*25);
    if(typeof pokedex !='undefined') 
       {
       setSelectedPoke(pokedex[random()]);
@@ -64,6 +65,8 @@ const calculateResult = () =>
                         console.log(`selected: ${selectedPoke.id} poke1:${poke1.id}, poke2: ${poke2.id}, poke3:${poke3.id}`)
                         setResult(<div> Wow! Perfect Score! You got 300 points and Pikachu loves you! </div>)
                         setShowScore(true);
+                        setAntiHack(true);
+
 
 
                      }
@@ -75,6 +78,7 @@ const calculateResult = () =>
                         console.log(`selected: ${selectedPoke.id} poke1:${poke1.id}, poke2: ${poke2.id}, poke3:${poke3.id}`)
                         setScore(prevScore => prevScore+200);
                         setShowScore(true);
+                        setAntiHack(true);
 
                         setResult(<div> Almost perfect! You score 200 points and Pikachu likes you! </div>)
                      }
@@ -86,12 +90,15 @@ const calculateResult = () =>
                         console.log(`selected: ${selectedPoke.id} poke1:${poke1.id}, poke2: ${poke2.id}, poke3:${poke3.id}`)
                         setScore(prevScore => prevScore+100)
                         setShowScore(true);
+                        setAntiHack(true);
                         setResult(<div> Not bad! You score 100 points and Pikachu appreciates your contribution.</div>)
                      }
                      else {
                         console.log(`selected: ${selectedPoke.id} poke1:${poke1.id}, poke2: ${poke2.id}, poke3:${poke3.id}`)
                         setScore(prevScore => prevScore -50);
                         setShowScore(true);
+                        setAntiHack(true);
+
                         setResult(<div> You lost! You loose -50 points and Pikachu is very disappointed with you!</div>)
                      }
               
@@ -142,7 +149,7 @@ const sendScore = async (event)=>{
          (<div> 
             <h2>You got {selectedPoke.name} </h2>
             <img src={selectedPoke.sprites.other["official-artwork"].front_default} /> <br/>
-            <input type="submit" value ="ROLL" onClick={getRoll}/>
+            <input hidden={antiHack} type="submit" value ="ROLL" onClick={getRoll}/>
          </div>)
       :<p></p>
       } 
@@ -157,7 +164,7 @@ const sendScore = async (event)=>{
             <img src={poke2.sprites.other["official-artwork"].front_default}/>
             <img src={poke3.sprites.other["official-artwork"].front_default}/>
             <br/>  <br/>
-         <input type="submit" value="Show your Score" onClick={calculateResult}/></div>)
+         <input hidden={showScore} type="submit" value="Show your Score" onClick={calculateResult}/></div>)
          :<span></span>}
          
 
