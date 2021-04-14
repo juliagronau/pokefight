@@ -23,6 +23,9 @@ const [result, setResult] = useState();
 const [score, setScore] = useState(0);
 const [showScore, setShowScore] = useState(false)
 
+// variable to inform the user when the 'submit' form is sent. 
+const [userFeedback, setUserFeedback] = useState(); 
+
 //when you click on 'Roll' 
 
 const getRoll = () =>
@@ -96,15 +99,18 @@ const calculateResult = () =>
          
             
 // When you click on 'send your score'... 
-const sendScore = async ()=>{
+
+
+const sendScore = async (event)=>{
+   event.preventDefault()
    const newScore = {
       name: value,
       pokename: selectedPoke.name, 
       win: false, //because you can NEVER win at gambling :D 
-      score:score
+      score:score,
+      numberofrolls: `${roll}`
     };
-    console.log(newScore)
-   // event.preventDefault()
+
    const options = {
      method: 'POST',
      body: JSON.stringify(newScore),
@@ -114,7 +120,10 @@ const sendScore = async ()=>{
    }
    try {
      const response = await fetch("https://poke-fights-app.herokuapp.com/fights", options)
+     const data = await response.json()
+     setUserFeedback(data);
    } catch (error) {console.log(error)}
+   window.location.reload()
 }
 
 
@@ -122,6 +131,8 @@ const sendScore = async ()=>{
 
    return (
    <div> 
+      {userFeedback?<p> your score has been submitted!</p>:console.log('no userfeedback')}
+
       <Heading> Pick your Pokemon, {value}! </Heading>
       <input type="submit" value="GET A RANDOM POKEMON" onClick={getPoke}/>
 
@@ -160,6 +171,8 @@ const sendScore = async ()=>{
             score={score} 
             roll={roll}/>
             <input type="submit" value ="ROLL AGAIN" onClick={getRoll}/>
+
+
          <form onSubmit={sendScore}> 
               <input type="submit" value="SEND YOUR SCORE"/> 
          </form>
