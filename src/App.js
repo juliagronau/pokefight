@@ -55,7 +55,7 @@ function App() {
                       </li>
                     ))}
                   </ul> */}
-
+  
                 <Route exact path="/play" render={ ()=> <NewGame/> } />
                 <Route exact path="/highscore" render={ ()=> <HighScore/> }/>
                 <Route exact path="/addiction-warning" render={ ()=> <Warning /> }/>
