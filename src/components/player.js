@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { Box, Form, FormField, TextInput, Button, Heading } from 'grommet';
 
-const Player = () => {
-    const [value, setValue] = useState('');
+const Player = ({value, setValue}) => {
 
 
     return (
@@ -33,6 +32,7 @@ const Player = () => {
                     value={value}
                     onChange={event => setValue(event.target.value)}
                     />
+                
                 </Box>
             </Box>
     )

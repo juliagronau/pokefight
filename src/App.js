@@ -1,5 +1,5 @@
 import './App.css';
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { PokeContext } from './context/context';
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
@@ -17,17 +17,19 @@ function App() {
 
   const pokeTheme = {
     global: { font: { 
-                family: 'poke', size: '20px', height: '20px'}, 
+                family: 'poke', size: '20px', height: '60px'}, 
                 colors: { text: {"dark": "yellow", "light": "#444444"}
               },
               control: { border:{ radius: '50px'} },
               input: { padding: {"horizontal": "50px"}},
-              focus: { border: { color: 'red'}}
+              focus: { border: { color: 'red'}},
             },
   };
 
-  const {pokedex} = useContext(PokeContext)
+  const {pokedex, setSelectedPoke} = useContext(PokeContext)
   console.log(pokedex)
+
+
   return (
     
     <React.StrictMode>
