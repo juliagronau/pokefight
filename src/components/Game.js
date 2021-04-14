@@ -141,7 +141,7 @@ const sendScore = async (event)=>{
       {userFeedback?<p> your score has been submitted!</p>:console.log('no userfeedback')}
 
       <Heading> Pick your Pokemon, {value}! </Heading>
-      <input  type="submit" value="GET A RANDOM POKEMON" onClick={getPoke}/>
+      <input hidden={antiHack} type="submit" value="GET A RANDOM POKEMON" onClick={getPoke}/>
 
       {/* When you click on 'get a pokemon' for the first time.... */}
       {selectedPoke
