@@ -22,7 +22,6 @@ function App() {
               },
               control: { border:{ radius: '50px'} },
               input: { padding: {"horizontal": "50px"}},
-              focus: { border: { color: 'red'}},
             },
   };
 
@@ -34,7 +33,7 @@ function App() {
     
     <React.StrictMode>
       <Grommet  background="white" theme={pokeTheme}> 
-        <Box  height={{ 'min': '100vh', 'max': '100%' }} width="100vw">
+        <Box  height={{ 'min': '100vh', 'max': '100%' }} width="100vw" animation="fadeIn">
 
           <OnHeaderNav theme={pokeTheme} />
           <Box   

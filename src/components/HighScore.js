@@ -18,13 +18,15 @@ const HighScore = () => {
   }, []);
 
   return highScore ? (
-    <Table>
+    <div className="high-score">
+      <h3>Check out the High Scores!</h3>
+      <Table>
       <TableHeader>
         <TableRow>
-          <TableCell>User</TableCell>
+          <TableCell>Player</TableCell>
           <TableCell>Pokémon</TableCell>
           <TableCell>Score</TableCell>
-          <TableCell>Number of Rolls</TableCell>
+          <TableCell>Rounds</TableCell>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -38,6 +40,7 @@ const HighScore = () => {
         ))}
       </TableBody>
     </Table>
+    </div>
   ) : (
     "Loading..."
   );

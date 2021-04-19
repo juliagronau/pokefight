@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { PokeContext } from '../context/context';
 import {useState, useEffect} from 'react';
 import PokeOutcome from './PokeOutcome';
-import {Heading } from 'grommet';
+import {Grommet, Heading, Box } from 'grommet';
 import { ThemeConsumer } from 'styled-components';
 
 
@@ -137,19 +137,23 @@ const sendScore = async (event)=>{
 //! start of return statement 
 
    return (
-   <div> 
+   <Box align="center">
       {userFeedback?<p> your score has been submitted!</p>:console.log('no userfeedback')}
 
-      <Heading> Pick your Pokemon, {value}! </Heading>
-      <input hidden={antiHack} type="submit" value="GET A RANDOM POKEMON" onClick={getPoke}/>
+      <Heading> Hi {value}, choose your Pokemon! </Heading>
+      <input hidden={antiHack} type="submit" value="GET A RANDOM POKEMON" className="pokeball" onClick={getPoke}/>
 
       {/* When you click on 'get a pokemon' for the first time.... */}
       {selectedPoke
       ?
-         (<div> 
-            <h2>You got {selectedPoke.name} </h2>
-            <img src={selectedPoke.sprites.other["official-artwork"].front_default} /> <br/>
-            <input hidden={antiHack} type="submit" value ="ROLL" onClick={getRoll}/>
+         (<div className="pokemon-player"> 
+         <img src={selectedPoke.sprites.other["official-artwork"].front_default} /> <br/>
+            <div>
+            <h2 className="titlecenter">You got {selectedPoke.name} </h2>
+            <p>Click on the button and try your luck</p>
+            <input hidden={antiHack} type="submit" value ="ROLL" className="buttontop" onClick={getRoll}/>
+            </div>
+            
          </div>)
       :<p></p>
       } 
@@ -159,30 +163,34 @@ const sendScore = async (event)=>{
 
       {poke1&&roll>0
       ?
-         (<div>
+         (<div className="poke-enemy-img">
             <img src={poke1.sprites.other["official-artwork"].front_default}/>
             <img src={poke2.sprites.other["official-artwork"].front_default}/>
             <img src={poke3.sprites.other["official-artwork"].front_default}/>
             <br/>  <br/>
-         <input hidden={showScore} type="submit" value="Show your Score" onClick={calculateResult}/></div>)
+         <div className="button-swscore"><input hidden={showScore} type="submit" value="Show your Score" className="buttontop" onClick={calculateResult}/></div>
+         </div>)
          :<span></span>}
          
 
       {/* When you click on 'showscore */}
       {showScore?
-         (<div><PokeOutcome 
+         (<div className="buttonposition"><PokeOutcome 
 
             setResult={setResult} 
             result={result} 
             setScore={setScore} 
             score={score} 
             roll={roll}/>
-            <input type="submit" value ="ROLL AGAIN" onClick={getRoll}/>
-
-
-         <form onSubmit={sendScore}> 
-              <input type="submit" value="SEND YOUR SCORE"/> 
-         </form>
+            <div className="button-down-roll">
+            <input type="submit" value ="Roll Again" className="buttontop" onClick={getRoll}/>
+            </div>
+            <div className="button-down-roll">
+               <form onSubmit={sendScore}> 
+              <input type="submit" className="buttontop" value="SEND YOUR SCORE"/> 
+               </form>
+            </div>
+         
       
          </div>
          )
@@ -191,7 +199,7 @@ const sendScore = async (event)=>{
    
    {/* <PokeCard/> <PokeArena/></span>):<p>Loading</p>} */}
    
-</div>      
+   </Box>     
    )
 }
 

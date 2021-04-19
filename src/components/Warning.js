@@ -2,8 +2,8 @@ import React from "react";
 
 const Warning = () => {
   return (
-    <div>
-      <h2>Gambling can be addictive.</h2>
+    <div className="warningpage">
+      <h2>Gambling can be addictive!</h2>
       <h3>
         {" "}
         If you observe any of these symptoms, please get professional help.
@@ -15,10 +15,10 @@ const Warning = () => {
         <li>You borrow money to pay for gambling</li>
         <li>You gamble until all your money is gone</li>
       </ul>
-      <p>
-        Source:
-        https://www.therecoveryvillage.com/process-addiction/compulsive-gambling/related/signs-youre-addicted-to-gambling/
-      </p>
+      <a href="https://www.therecoveryvillage.com/process-addiction/compulsive-gambling/related/signs-youre-addicted-to-gambling/">
+        Click here and find more info in "therecoveryvillage"
+        
+      </a>
     </div>
   );
 };

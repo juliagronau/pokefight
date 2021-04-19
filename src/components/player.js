@@ -7,7 +7,7 @@ const Player = ({value, setValue}) => {
 
     return (
         <Box align="center" basis="full" background="white">
-            <Heading> Chose your Nickname</Heading>
+            <Heading> Introduce your Nickname</Heading>
                 
             
                 {/* <Form
@@ -25,14 +25,13 @@ const Player = ({value, setValue}) => {
                 </Form>  */}
 
                 <Box>
-
-                <TextInput
-
-                    placeholder="type here"
+                <div className="input-name">
+                    <TextInput
+                    placeholder="Introduce your nickname"
                     value={value}
                     onChange={event => setValue(event.target.value)}
                     />
-                
+                </div>
                 </Box>
             </Box>
     )

@@ -6,14 +6,146 @@ html {
   margin : 0 ;
   height: 100%;
   width: 100%;
-  background-image: url(https://c4.wallpaperflare.com/wallpaper/666/722/548/video-games-the-legend-of-zelda-link-s-awakening-wallpaper-preview.jpg);
-  /* background-image: url(https://c4.wallpaperflare.com/wallpaper/379/892/940/pokemon-underwater-underwater-anime-pokemon-hd-art-wallpaper-preview.jpg); */
-  background-size: cover;
+  /*background-image: url(https://c4.wallpaperflare.com/wallpaper/666/722/548/video-games-the-legend-of-zelda-link-s-awakening-wallpaper-preview.jpg);
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/379/892/940/pokemon-underwater-underwater-anime-pokemon-hd-art-wallpaper-preview.jpg); */
+  /*background-size: cover;*/
  }
 
  body {
-  padding: 0 var(--side);
   margin : 0 ;
-  height: 100%;
-  width: calc(100% - var(--sides));
   }
+.cAjuhI{
+    background-color: #d31f29!important;
+  }
+.dYWqZo{
+    background-color: #1e1b1c!important;
+  }
+.StyledHeading-sc-1rdh4aw-0{
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+}
+
+.bQmAxw{
+  padding: 1rem;
+  width: 100%;
+  justify-content: center;
+  border: 3px solid rgba(211,31,41, 1)!important;
+}
+div.input-name{
+  font-family: 'Dosis', sans-serif;
+    width: 30rem;
+}
+.buttontop{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  width: 20rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: white;
+  border: 3px solid rgba(211,31,41, 1);
+  background-color: rgba(211,31,41, 1);
+  border-radius: 50px;
+}
+.buttontop:hover{
+  border: 3px solid rgba(211,31,41, 1);
+  color:rgba(211,31,41, 1);
+  background-color: white;
+}
+.titlecenter{
+  text-align: center;
+}
+div.pokemon-player p{
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+.pokeball{
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  align-self: center;
+  border: none;
+  background-position: center;
+  background-size: contain;
+  background:url('../src/assets/pokeball.png')  no-repeat scroll 0 0 transparent;
+}
+input.pokeball{
+  color:transparent;
+}
+input.pokeball:hover{
+  color:transparent;
+  transform: rotate(180deg) ;
+}
+input.pokeball:focus{
+  border:none ;
+}
+div.pokemon-player{
+  justify-content: center;
+  display: flex;
+  place-items: flex-end;
+  margin-bottom:2rem;
+}
+div.button-swscore{
+  display: flex;
+  justify-content: center;
+}
+div.button-down-roll{
+  width: 50%;
+  float: left;
+  justify-content: center;
+  display: flex;
+}
+div.buttonposition{
+    font-family: 'Dosis', sans-serif;
+    font-weight: 800;
+}
+div.buttonposition h1{
+  text-align: justify;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+/*img*/
+div.pokemon-player img{
+  width: 22rem;
+}
+div.poke-enemy-img img{
+  width: 20rem;
+}
+
+/*High Scores page*/
+div.high-score table{
+  font-family: 'Dosis', sans-serif;
+}
+div.high-score h3{
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+div.high-score thead{
+  font-weight: 600;
+}
+
+/*Warning page*/
+div.warningpage{
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+}
+div.warningpage h2{
+  font-size: 5rem;
+  color:#d31f29;
+  text-decoration: underline;
+  margin: 0;
+  padding-top: 2rem;
+}
+div.warningpage h3{
+  font-size: 2rem;
+}
+div.warningpage ul{
+  list-style: none;
+  font-size: 2rem;
+}
+div.warningpage a{
+  text-decoration: none;
+  color:#d31f29;
+}
