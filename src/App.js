@@ -20,6 +20,7 @@ function App() {
                 family: 'poke', size: '20px', height: '60px'}, 
                 colors: { text: {"dark": "yellow", "light": "#444444"}
               },
+              colors: {focus:'transparent'},
               control: { border:{ radius: '50px'} },
               input: { padding: {"horizontal": "50px"}},
             },
