@@ -20,11 +20,13 @@ function App() {
     global: { font: { 
                 family: 'poke', size: '20px', height: '60px'}, 
                 colors: { 
-                  text: {"dark": "yellow", "light": "#444444"},
-                  focus:'transparent'
+                  brand: "#7D4CDB",
+                  text: {"dark": "white", "light": "#444444"},
+                  focus:{ shadow: {color : { "dark": "white"}}}
               },
               control: { border:{ radius: '50px'} },
               input: { padding: {"horizontal": "50px"}},
+              button: {active: {border: {color: {"dark": "transparent", "light": "transparent"} }}}
             },
   };
 
