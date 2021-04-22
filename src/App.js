@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { PokeContext } from './context/context';
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
@@ -10,6 +10,7 @@ import OnHeaderNav from './grommet/header';
 import NewGame from './components/NewGame';
 import HighScore from "./components/HighScore";
 import Warning from "./components/Warning";
+import Pokedex from "./components/Pokedex";
 
 
 
@@ -18,15 +19,16 @@ function App() {
   const pokeTheme = {
     global: { font: { 
                 family: 'poke', size: '20px', height: '60px'}, 
-                colors: { text: {"dark": "yellow", "light": "#444444"}
+                colors: { 
+                  text: {"dark": "yellow", "light": "#444444"},
+                  focus:'transparent'
               },
-              colors: {focus:'transparent'},
               control: { border:{ radius: '50px'} },
               input: { padding: {"horizontal": "50px"}},
             },
   };
 
-  const {pokedex, setSelectedPoke} = useContext(PokeContext)
+  const {pokedex} = useContext(PokeContext)
   console.log(pokedex)
 
 
@@ -38,7 +40,7 @@ function App() {
 
           <OnHeaderNav theme={pokeTheme} />
           <Box   
-                  flex="grow"
+                 flex="grow"
                  align="center"
                  pad="50px"
                  basis="full"
@@ -59,7 +61,7 @@ function App() {
                 <Route exact path="/play" render={ ()=> <NewGame/> } />
                 <Route exact path="/highscore" render={ ()=> <HighScore/> }/>
                 <Route exact path="/addiction-warning" render={ ()=> <Warning /> }/>
-                
+                <Route exact path="/pokedex" render={ ()=> <Pokedex pokedex={pokedex}/> }/>
                 {/* <Route path="*" component={PageNotFound} /> */}
 
               </Switch>

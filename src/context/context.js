@@ -19,7 +19,7 @@ const PokeState = ({ children }) => {
       setPokedex(pokeStats)
     }
    getPoke();}, [])
-
+    console.log(pokedex)
 
   return (
     <PokeContext.Provider

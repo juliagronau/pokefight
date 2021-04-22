@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-
-import { Box, Form, FormField, TextInput, Button, Heading } from 'grommet';
+import React from 'react';
+import { Box, TextInput, Heading } from 'grommet';
 
 const Player = ({value, setValue}) => {
 

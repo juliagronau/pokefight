@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { PokeContext } from '../context/context';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import PokeOutcome from './PokeOutcome';
-import {Grommet, Heading, Box } from 'grommet';
-import { ThemeConsumer } from 'styled-components';
+import {Heading, Box } from 'grommet';
+ 
 
 
 
